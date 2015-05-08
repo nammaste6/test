@@ -1,0 +1,11 @@
+{
+  "name": "first",
+  "children":[{ "name" : "ga", "value":408, "cx": 10, "cy":200},
+    { "name" : "gb", "value":300, "cx": 100, "cy":200},
+    { "name" : "gc", "value":371, "cx": 100, "cy":500},
+    { "name" : "gd", "value":129,  "cx": 100, "cy":50},
+    { "name" : "ge", "value":265,  "cx": 100, "cy":20},
+    { "name" : "gf", "value":264,  "cx": 100, "cy":150},
+    { "name" : "gg", "value":107,  "cx": 100, "cy":600},
+    { "name" : "gh", "value":216,  "cx": 100, "cy":300}]
+}
