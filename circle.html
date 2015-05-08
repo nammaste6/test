@@ -3,13 +3,14 @@
     <head>
 	<script src="d3.v3.min.js" charset="utf-8"></script>
 	<style>
-	    .outer-div{
+	    .inner-div{
 		filter:url('#goo');
 	    }
 	</style>
     </head>
     <body>
-	<div class="outer-div"></div>
+	<div class="outer-div">
+	</div>
 	<script>
 	    var h = 800;
 	    var w = 800;
@@ -19,6 +20,13 @@
 			.attr("width", w)
 			.attr("height", h);
 
+	    var innerSvg = d3.select('body')
+	    			.append('div')
+				.attr("class","inner-div")
+	    			.append('svg')
+				.attr("width", w)
+				.attr("height", h);
+
 	    //svg.selectAll("circle")
 	    	//.data([1])
 		//.enter()
@@ -26,19 +34,42 @@
 	    	//.attr("cx", 20)
 	    	//.attr("cy", 20)
 		//.attr("r", 10)
-	    var s = svg.append("circle")
-	    	.attr("cx", 20)
-	    	.attr("cy", 20)
-		.attr("r", 10);
+	    var linearScale = d3.scale.linear()
+				.domain([100, 400])
+				.range([5, 50]);
 
-	    var circle = svg.selectAll("circle")
-	    	.data([1,2,3,4])
-		.enter()
-		.append("circle")
-		.attr("id", "move")
-		.attr("cx", function(d){return 20*d;})
-		.attr("cy", function(d){return 10*d;})
-		.attr("r", function(d){return d*5;});
+	var d_test = '';
+	    d3.json("wwwdata/coffee.json", function(e, d){
+		if(e) console.warn(e);
+		d_test = d;
+		var s = svg.selectAll("circle")
+		    .data(d.children)
+		    .enter()
+		    .append("circle")
+		    .attr("id", "root_circle")
+		    .style("fill", "yellow")
+		    .attr("cx", function(d){return d.cx;})
+		    .attr("cy", function(d){return d.cy;})
+		    .attr("r", function(d){return linearScale(d.value)});
+
+		var s = innerSvg.selectAll("circle")
+		    .data(d.children)
+		    .enter()
+		    .append("circle")
+		    .attr("id", "root_circle")
+		    .attr("cx", function(d){return d.cx;})
+		    .attr("cy", function(d){return d.cy;})
+		    .attr("r", function(d){return linearScale(d.value)});
+	    });
+
+	    //var circle = svg.selectAll("circle")
+	    //	.data([1,2,3,4])
+//		.enter()
+///		.append("circle")
+//		.attr("id", "move")
+//		.attr("cx", function(d){return 20*d;})
+//		.attr("cy", function(d){return 10*d;})
+//		.attr("r", function(d){return d*5;});
 	
 	    function redraw(){
 		    s.transition()
@@ -52,9 +83,23 @@
 		    .attr("r", function(d){return d*5});
 	    }
 
-	    setInterval(function(){
-		redraw();
-	    },200)
+	 //   setInterval(function(){
+	//	redraw();
+	//    },200)
+
+	    function calculateCircleAttr(data){
+		var size = data.length;
+		var total = 0;
+		var result = [];
+		function st(x, y, r){
+		    var cx = x;
+		    var cy = y;
+		    var r = r;
+		}
+		for(var i in data){
+		    total += data[i].value;
+		}
+	    }
 	</script>
 	<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
 	  <defs>
