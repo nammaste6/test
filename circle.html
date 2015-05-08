@@ -17,12 +17,20 @@
 
 	    var svg = d3.select('div')
 	    		.append('svg')
+			.style("position", "absolute")
+			.style("top","0px")
+			.style("left","0px")
+			.style("z-index","2")
 			.attr("width", w)
 			.attr("height", h);
 
 	    var innerSvg = d3.select('body')
 	    			.append('div')
 				.attr("class","inner-div")
+				.style("position", "absolute")
+				.style("top","0px")
+				.style("left","0px")
+				.style("z-index","1")
 	    			.append('svg')
 				.attr("width", w)
 				.attr("height", h);
