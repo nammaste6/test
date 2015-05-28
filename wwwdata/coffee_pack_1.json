@@ -1,11 +1,11 @@
 {
   "year": "2011",
-  "children":[{ "name" : "ga", "value":700 },
-    { "name" : "gb", "value":433 },
-    { "name" : "gc", "value":540 },
-    { "name" : "gd", "value":205 },
-    { "name" : "ge", "value":302 },
-    { "name" : "gf", "value":321 },
-    { "name" : "gg", "value":183 },
-    { "name" : "gh", "value":249 }]
+  "children":[{ "name" : "카페베네", "value":701 },
+    { "name" : "이디야", "value":433 },
+    { "name" : "엔제리너스", "value":540 },
+    { "name" : "투썸플레이스", "value":205 },
+    { "name" : "탐앤탐스", "value":302 },
+    { "name" : "할리스", "value":321 },
+    { "name" : "파스쿠찌", "value":183 },
+    { "name" : "카페띠아모", "value":249 }]
 }
